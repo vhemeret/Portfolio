@@ -153,17 +153,18 @@ function Projects() {
                     variants={containerVariants}
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
-                    className='fixed flex justify-center items-center z-50 inset-0 bg-black/50'>
+                    className='fixed flex justify-center items-center z-50 inset-0 bg-gray-900/70'>
                     <div
                         onClick={() => handleModal(selectedProject.id)}
                         className='fixed inset-0'
                     />
-                    <div className='bg-gradient-to-t from-black-100/100 to-black w-1/2 h-auto rounded-3xl p-10 drop-shadow-2xl'>
+                    <div className='bg-gradient-to-t from-black-100/100 overflow-hidden to-black-100/70 w-1/2 h-auto rounded-3xl p-10 drop-shadow-2xl'>
                         <div className='text-white flex w-full flex-col'>
-                            <Image className='rounded-2xl mb-3' src={selectedProject.mainImage} alt={selectedProject.title} />
+                            <Image className='rounded-2xl mb-3 z-50' src={selectedProject.mainImage} alt={selectedProject.title} />
                             <h1 className='font-bold text-xl ml-2 mb-2'>{selectedProject.title}</h1>
                             <p className='font-thin text-sm ml-2'>{selectedProject.fullDescription}</p>
                         </div>
+                        <Meteors number={20} />
                     </div>
                 </motion.div>
             )}
