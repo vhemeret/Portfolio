@@ -7,8 +7,8 @@ import Inception from '../pages/img/inception.webp'
 import Chinoflix from '../pages/img/Chinoflix.webp'
 import Transcendence from '../pages/img/ft_transcendance.webp'
 import Image, { StaticImageData } from 'next/image'
-import truncate from '@/utils/utils'
 import { Meteors } from './ui/meteors'
+import { ThreeDCardDemo } from './3d-card'
 
 interface projectInterface {
     id: number;
@@ -132,19 +132,11 @@ function Projects() {
                     Une selection de mes <span className='text-purple'>projets..</span>
                 </motion.h1>
             </motion.div>
-            <div className='z-0 mt-20 flex flex-wrap justify-center items-center gap-14'>
+            <div className='z-0 mt-20 flex flex-wrap justify-center items-center space-x-10 2xl:gap-20 '>
 
                 {projects.map((project) => (
-                    <div key={project.id} onClick={() => handleModal(project.id)} className='p-4 w-3/5 sm:w-2/4 md:w-2/5 lg:w-2/6 xl:w-1/4 2xl:w-1/5 justify-center item-center bg-gradient-to-t from-black-200 to-black-100 rounded-3xl hover:scale-105 transition-all'>
-                        <div className='flex flex-col'>
-                            <Image className=" rounded-2xl" src={project.mainImage} alt={project.title} />
-                        </div>
-                        <div className='flex flex-col mt-10 text-white'>
-                            <h4 className='font-medium tracking-widest'>{project.title}</h4>
-                            <p className='font-thin'>
-                                {truncate(project.description, 100)}
-                            </p>
-                        </div>
+                    <div key={project.id} onClick={() => handleModal(project.id)} className=''>
+                        <ThreeDCardDemo title={project.title} description={project.description} mainImage={project.mainImage}/>
                     </div>
                 ))}
             </div>
@@ -164,7 +156,6 @@ function Projects() {
                             <h1 className='font-bold text-xl ml-2 mb-2'>{selectedProject.title}</h1>
                             <p className='font-thin text-sm ml-2'>{selectedProject.fullDescription}</p>
                         </div>
-                        <Meteors number={20} />
                     </div>
                 </motion.div>
             )}
