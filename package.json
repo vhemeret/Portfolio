@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "@react-three/drei": "^9.113.0",
     "@react-three/fiber": "^8.17.8",
     "@tabler/icons-react": "^3.17.0",
@@ -16,6 +17,7 @@
     "card3d": "^2.6.5",
     "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",
+    "heroicons": "^2.1.5",
     "icons-react": "^3.7.1",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.11",

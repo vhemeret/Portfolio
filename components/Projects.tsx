@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import Template from '../pages/img/next.webp'
 import Irc from '../pages/img/ft_irc.webp'
 import Inception from '../pages/img/inception.webp'
 import Chinoflix from '../pages/img/Chinoflix.webp'
-import Transcendence from '../pages/img/ft_transcendance.webp'
+import Transcendence from '../pages/img/ft_transcendence.webp'
 import Image, { StaticImageData } from 'next/image'
-import { Meteors } from './ui/meteors'
 import { ThreeDCardDemo } from './3d-card'
 
 interface projectInterface {
@@ -60,16 +58,16 @@ function Projects() {
     }
 
     const projects: Project[] = [
-        {
-            id: 0,
-            title: 'Web Monitor',
-            description: "Application de surveillance des changements d'un sites web.",
-            fullDescription: "Web Monitor est une application sophistiquée conçue pour surveiller en temps réel les performances des sites web. Utilisant Next.js et React pour une interface utilisateur réactive, et Node.js avec WebSocket pour des mises à jour en temps réel, cet outil permet aux développeurs et aux propriétaires de sites web de suivre des métriques cruciales telles que le temps de chargement, les erreurs serveur, et le trafic utilisateur. L'application offre des tableaux de bord personnalisables, des alertes configurables, et des rapports détaillés pour aider à optimiser les performances et l'expérience utilisateur des sites web surveillés.",
-            mainImage: Template,
-            additionalImage: [],
-            technologies: "Next.js, React, Node.js, WebSocket",
-            goal: "Fournir aux développeurs et aux propriétaires de sites web un outil pour surveiller et analyser les performances de leurs sites en temps réel."
-        },
+        // {
+        //     id: 0,
+        //     title: 'WebFlag',
+        //     description: "Application de surveillance des changements d'un sites web.",
+        //     fullDescription: "Web Monitor est une application sophistiquée conçue pour surveiller en temps réel les performances des sites web. Utilisant Next.js et React pour une interface utilisateur réactive, et Node.js avec WebSocket pour des mises à jour en temps réel, cet outil permet aux développeurs et aux propriétaires de sites web de suivre des métriques cruciales telles que le temps de chargement, les erreurs serveur, et le trafic utilisateur. L'application offre des tableaux de bord personnalisables, des alertes configurables, et des rapports détaillés pour aider à optimiser les performances et l'expérience utilisateur des sites web surveillés.",
+        //     mainImage: Template,
+        //     additionalImage: [],
+        //     technologies: "Next.js, React, Node.js, WebSocket",
+        //     goal: "Fournir aux développeurs et aux propriétaires de sites web un outil pour surveiller et analyser les performances de leurs sites en temps réel."
+        // },
         {
             id: 1,
             title: 'Netflix Clone',
@@ -145,12 +143,12 @@ function Projects() {
                     variants={containerVariants}
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
-                    className='fixed flex justify-center items-center z-50 inset-0 bg-gray-900/70'>
+                    className='fixed flex justify-center items-center z-50 inset-0 bg-gray-900/70 p-4'>
                     <div
                         onClick={() => handleModal(selectedProject.id)}
                         className='fixed inset-0'
                     />
-                    <div className='bg-gradient-to-t from-black-100/100 overflow-hidden to-black-100/70 w-1/2 h-auto rounded-3xl p-10 drop-shadow-2xl'>
+                    <div className=' relative group/card  hover:shadow-2xl hover:shadow-emerald-300/[0.1] bg-gradient-to-t from-black-100  w-auto sm:w-[30rem] h-auto rounded-xl p-6 '>
                         <div className='text-white flex w-full flex-col'>
                             <Image className='rounded-2xl mb-3 z-50' src={selectedProject.mainImage} alt={selectedProject.title} />
                             <h1 className='font-bold text-xl ml-2 mb-2'>{selectedProject.title}</h1>
