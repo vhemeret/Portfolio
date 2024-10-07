@@ -13,7 +13,7 @@ interface Props {
 export function ThreeDCardDemo({title, description, mainImage}: Props) {
   return (
     <CardContainer className="inter-var">
-      <CardBody className=" relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-gradient-to-t from-black-200  border-black/[0.3] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+      <CardBody className="relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-gradient-to-t from-black-200  border-black/[0.3] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-white"

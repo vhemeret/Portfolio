@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useAnimation } from 'framer-motion'
 import { useRef } from 'react'
 import Irc from '../pages/img/ft_irc.webp'
 import Inception from '../pages/img/inception.webp'
@@ -13,13 +13,15 @@ interface projectInterface {
 	title: string;
 	description: string;
 	fullDescription: string;
+	technologies: string;
+	goal: string;
 	mainImage: StaticImageData;
 	additionalImage: StaticImageData[];
 }
 
 function Projects() {
-	const ref = useRef(null)
-	const isInView = useInView(ref, { once: true, amount: 0.5 })
+	const titleRef = useRef(null)
+	const isInView = useInView(titleRef, { once: true, amount: 0.1 })
 	const [isOpen, setIsOpen] = useState(false)
 	const [selectedProject, setSelectedProject] = useState<projectInterface | null>(null)
 
@@ -57,7 +59,7 @@ function Projects() {
 		}
 	}
 
-	const projects: Project[] = [
+	const projects: projectInterface[] = [
 		// {
 		//     id: 0,
 		//     title: 'WebFlag',
@@ -111,53 +113,55 @@ function Projects() {
 	];
 
 	return (
-		<section className='flex pt-40 flex-col justify-center items-center' ref={ref}>
-			<div className="absolute h-screen w-full bg-black-100 bg-grid-white/[0.04] flex items-center justify-center">
-				<div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,1)_90%,black)]"></div>
-			</div>
-
-
-			<motion.div
-				className='z-50'
-				variants={containerVariants}
-				initial="hidden"
-				animate={isInView ? "visible" : "hidden"}
-			>
-				<motion.h1
-					variants={itemVariants}
-					className='text-white md:text-3xl lg:text-4xl sm:text-xl font-bold'
-				>
-					Une selection de mes <span className='text-purple'>projets..</span>
-				</motion.h1>
-			</motion.div>
-			<div className='mt-20 flex flex-wrap justify-center items-center space-x-10 2xl:gap-20 '>
-
-				{projects.map((project) => (
-					<div key={project.id} onClick={() => handleModal(project.id)} className=''>
-						<ThreeDCardDemo title={project.title} description={project.description} mainImage={project.mainImage} />
-					</div>
-				))}
-			</div>
-			{/* {isOpen && selectedProject && (
+		<>
+			<section className='relative flex flex-col mt-30 justify-center items-center mt-40'>
+				<div className="absolute inset-0 bg-black-100 bg-grid-white/[0.04] flex items-center justify-center">
+					<div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,1)_90%,black)]"></div>
+				</div>
 				<motion.div
+					ref={titleRef}
+					className='z-50 mb-20'
 					variants={containerVariants}
 					initial="hidden"
 					animate={isInView ? "visible" : "hidden"}
-					className='fixed flex justify-center items-center z-50 inset-0 bg-gray-900/70 p-4'>
-					<div
-						onClick={() => handleModal(selectedProject.id)}
-						className='fixed inset-0'
-					/>
-					<div className=' relative group/card  hover:shadow-2xl hover:shadow-emerald-300/[0.1] bg-gradient-to-t from-black-100  w-auto sm:w-[30rem] h-auto rounded-xl p-6 '>
-						<div className='text-white flex w-full flex-col'>
-							<Image className='rounded-2xl mb-3 z-50' src={selectedProject.mainImage} alt={selectedProject.title} />
-							<h1 className='font-bold text-xl ml-2 mb-2'>{selectedProject.title}</h1>
-							<p className='font-thin text-sm ml-2'>{selectedProject.fullDescription}</p>
-						</div>
-					</div>
+				>
+					<motion.h1
+						variants={itemVariants}
+						className='text-white md:text-3xl lg:text-4xl sm:text-xl font-bold'
+					>
+						Une selection de mes <span className='text-purple'>projets..</span>
+					</motion.h1>
 				</motion.div>
-			)} */}
-		</section>
+
+				<div className='relative flex md:flex-row flex-wrap justify-center items-center gap-10'>
+
+					{projects.map((project) => (
+						<div key={project.id} onClick={() => handleModal(project.id)} className=''>
+							<ThreeDCardDemo title={project.title} description={project.description} mainImage={project.mainImage} />
+						</div>
+					))}
+				</div>
+				{/* {isOpen && selectedProject && (
+				<motion.div
+				variants={containerVariants}
+				initial="hidden"
+				animate={isInView ? "visible" : "hidden"}
+				className='fixed flex justify-center items-center z-50 inset-0 bg-gray-900/70 p-4'>
+				<div
+				onClick={() => handleModal(selectedProject.id)}
+				className='fixed inset-0'
+				/>
+				<div className=' relative group/card  hover:shadow-2xl hover:shadow-emerald-300/[0.1] bg-gradient-to-t from-black-100  w-auto sm:w-[30rem] h-auto rounded-xl p-6 '>
+				<div className='text-white flex w-full flex-col'>
+				<Image className='rounded-2xl mb-3 z-50' src={selectedProject.mainImage} alt={selectedProject.title} />
+				<h1 className='font-bold text-xl ml-2 mb-2'>{selectedProject.title}</h1>
+				<p className='font-thin text-sm ml-2'>{selectedProject.fullDescription}</p>
+				</div>
+				</div>
+				</motion.div>
+				)} */}
+			</section>
+		</>
 	)
 }
 
