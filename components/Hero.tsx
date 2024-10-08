@@ -37,7 +37,8 @@ export default function Hero() {
 				sm:-end-[100px] sm:-top-[700px]
 				md:-end-[300px] md:-top-[700px]
 				lg:-end-[190px] lg:-top-[500px]
-				-end-[100px] -top-[600px]
+				-end-[200px] -top-[600px]
+				z-50
 				'
 				fill='purple'
 			/>
