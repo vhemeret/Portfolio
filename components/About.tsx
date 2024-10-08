@@ -36,8 +36,8 @@ const About = () => {
     ];
 
     return (
-        <section className='z-10 mt-40 flex flex-col justify-center items-center max-w-8xl '>
-            <TypewriterEffect words={words} />
+        <section className=' mt-40 flex flex-col justify-center items-center max-w-8xl '>
+            <TypewriterEffect className='z-50' words={words} />
             <div className='flex flex-col justify-center items-center bg-gradient-to-b from-black-200 to-black-100 rounded-3xl  backdrop-filter backdrop-blur lg:w-2/4 p-10 mt-20 w-5/6 xl:w-2/5'>
                 <div className="flex mb-10 items-center justify-center">
                     <Image src={Circle} alt='profil' className='w-48 rounded-full' />
