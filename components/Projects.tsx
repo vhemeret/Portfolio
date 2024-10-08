@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion, useInView, useAnimation } from 'framer-motion'
 import { useRef } from 'react'
 import Irc from '../pages/img/ft_irc.webp'
@@ -7,6 +7,7 @@ import Chinoflix from '../pages/img/Chinoflix.webp'
 import Transcendence from '../pages/img/ft_transcendence.webp'
 import Image, { StaticImageData } from 'next/image'
 import { ThreeDCardDemo } from './3d-card'
+import { XMarkIcon } from '@heroicons/react/20/solid'
 
 interface projectInterface {
 	id: number;
@@ -58,6 +59,14 @@ function Projects() {
 			setSelectedProject(null)
 		}
 	}
+
+	useEffect(() => {
+		if (isOpen)
+			document.body.classList.add('overflow-hidden')
+		else {
+			document.body.classList.remove('overflow-hidden')
+		}
+	}, [isOpen])
 
 	const projects: projectInterface[] = [
 		// {
@@ -115,20 +124,13 @@ function Projects() {
 	return (
 		<>
 			<section className='relative flex flex-col mt-30 justify-center items-center mt-40'>
+
 				<div className="absolute inset-0 bg-black-100 bg-grid-white/[0.04] flex items-center justify-center">
 					<div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,1)_90%,black)]"></div>
 				</div>
-				<motion.div
-					ref={titleRef}
-					className='z-50 mb-20'
-					variants={containerVariants}
-					initial="hidden"
-					animate={isInView ? "visible" : "hidden"}
-				>
-					<motion.h1
-						variants={itemVariants}
-						className='text-white md:text-3xl lg:text-4xl sm:text-xl font-bold'
-					>
+
+				<motion.div ref={titleRef} className='z-50 mb-20' variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
+					<motion.h1 variants={itemVariants} className='text-white md:text-3xl lg:text-4xl sm:text-xl font-bold'>
 						Une selection de mes <span className='text-purple'>projets..</span>
 					</motion.h1>
 				</motion.div>
@@ -140,26 +142,27 @@ function Projects() {
 							<ThreeDCardDemo title={project.title} description={project.description} mainImage={project.mainImage} />
 						</div>
 					))}
+
 				</div>
-				{/* {isOpen && selectedProject && (
-				<motion.div
-				variants={containerVariants}
-				initial="hidden"
-				animate={isInView ? "visible" : "hidden"}
-				className='fixed flex justify-center items-center z-50 inset-0 bg-gray-900/70 p-4'>
-				<div
-				onClick={() => handleModal(selectedProject.id)}
-				className='fixed inset-0'
-				/>
-				<div className=' relative group/card  hover:shadow-2xl hover:shadow-emerald-300/[0.1] bg-gradient-to-t from-black-100  w-auto sm:w-[30rem] h-auto rounded-xl p-6 '>
-				<div className='text-white flex w-full flex-col'>
-				<Image className='rounded-2xl mb-3 z-50' src={selectedProject.mainImage} alt={selectedProject.title} />
-				<h1 className='font-bold text-xl ml-2 mb-2'>{selectedProject.title}</h1>
-				<p className='font-thin text-sm ml-2'>{selectedProject.fullDescription}</p>
-				</div>
-				</div>
-				</motion.div>
-				)} */}
+
+				{isOpen && selectedProject && (
+
+					<motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className='fixed flex justify-center items-center z-50 inset-0 bg-gray-900/80 p-4'>
+						<div onClick={() => handleModal(selectedProject.id)} className='fixed inset-0' />
+						<div className=' relative group/card  hover:shadow-2xl hover:shadow-emerald-300/[0.1] bg-gradient-to-t from-black-100  w-auto sm:w-[30rem] h-auto rounded-xl p-6 '>
+							<div className='text-white flex w-full flex-col'>
+								<Image className='rounded-2xl mb-3 z-50' src={selectedProject.mainImage} alt={selectedProject.title} />
+								<h1 className='font-bold text-xl ml-2 mb-2'>{selectedProject.title}</h1>
+								<p className='font-thin text-sm ml-2'>{selectedProject.fullDescription}</p>
+								<div className='flex justify-center'>
+									<button onClick={() => setIsOpen(false)} className='md:bg-gray-800 md:hover:bg-black-200 px-2 py-1 rounded-xl mt-4 font-thin text-gray-500 hover:text-gray-600 transition-all cursor-pointer'>fermer</button>
+								</div>
+							</div>
+						</div>
+					</motion.div>
+
+				)}
+
 			</section>
 		</>
 	)
