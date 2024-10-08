@@ -3,14 +3,16 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
+import { Url } from "next/dist/shared/lib/router/router";
 
 interface Props {
     title: string;
     description: string;
     mainImage: StaticImageData;
+	githubLink: string;
 }
 
-export function ThreeDCardDemo({title, description, mainImage}: Props) {
+export function ThreeDCardDemo({title, description, mainImage, githubLink}: Props) {
   return (
     <CardContainer className="inter-var">
       <CardBody className="relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-gradient-to-t from-black-200  border-black/[0.3] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
@@ -45,7 +47,10 @@ export function ThreeDCardDemo({title, description, mainImage}: Props) {
           <CardItem
             translateZ={20}
             translateX={-40}
-            as="button"
+            as="a"
+			href={githubLink}
+			target="_blank"
+  			rel="noopener noreferrer"
             className="px-4 py-2 rounded-xl text-xs font-normal text-white"
           >
             Voir le projet sur GitHub →
