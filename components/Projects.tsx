@@ -10,7 +10,7 @@ import Transcendence from '../pages/img/ft_transcendence.webp'
 import Image, { StaticImageData } from 'next/image'
 import { ThreeDCardDemo } from './3d-card'
 
-interface projectInterface {
+export interface projectInterface {
 	id: number;
 	title: string;
 	description: string;
@@ -49,17 +49,15 @@ function Projects() {
 		},
 	};
 
-	const handleModal = (projectId: number) => {
-		if (!isOpen) {
-			const findProject = projects.find(p => p.id === projectId)
-			setIsOpen(true)
-			setSelectedProject(findProject || null)
-		}
-		else {
-			setIsOpen(false)
-			setSelectedProject(null)
-		}
-	}
+	const openModal = (project: projectInterface) => {
+        setIsOpen(true);
+        setSelectedProject(project);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+        setSelectedProject(null);
+    };
 
 	useEffect(() => {
 		if (isOpen)
@@ -159,8 +157,8 @@ function Projects() {
 				<div className='relative flex md:flex-row flex-wrap justify-center items-center gap-10'>
 
 					{projects.map((project) => (
-						<div key={project.id} onClick={() => handleModal(project.id)} className=''>
-							<ThreeDCardDemo title={project.title} description={project.description} mainImage={project.mainImage} githubLink={project.githubLink} />
+						<div key={project.id} className=''>
+							<ThreeDCardDemo project={project} openModal={openModal} />
 						</div>
 					))}
 
@@ -169,7 +167,7 @@ function Projects() {
 				{isOpen && selectedProject && (
 
 					<motion.div variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"} className='fixed flex justify-center items-center z-50 inset-0 bg-gray-900/80 p-4'>
-						<div onClick={() => handleModal(selectedProject.id)} className='fixed inset-0' />
+						<div onClick={closeModal} className='fixed inset-0' />
 						<div className=' relative group/card  hover:shadow-2xl hover:shadow-emerald-300/[0.1] bg-gradient-to-t from-black-100  w-auto sm:w-[30rem] h-auto rounded-xl p-6 '>
 							<div className='text-white flex w-full flex-col'>
 								<Image className='rounded-2xl mb-3 z-50' src={selectedProject.mainImage} alt={selectedProject.title} />
@@ -177,7 +175,7 @@ function Projects() {
 								<p className='font-thin text-sm ml-2'>{selectedProject.fullDescription}</p>
 								<p className='font text-sm ml-2 mt-4 tracking-widest text-violet-400'>{selectedProject.technologies}</p>
 								<div className='flex justify-center'>
-									<button onClick={() => setIsOpen(false)} className=' px-2 py-1 rounded-xl mt-4 text-gray-500 hover:text-gray-600 transition-all cursor-pointer'>fermer</button>
+									<button onClick={closeModal} className=' px-2 py-1 rounded-xl mt-4 text-gray-500 hover:text-gray-600 transition-all cursor-pointer'>fermer</button>
 								</div>
 							</div>
 						</div>
