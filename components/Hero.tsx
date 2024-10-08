@@ -30,7 +30,7 @@ export default function Hero() {
 
 
 	return (
-		<section className="flex justify-center items-center pt-36 max-w-7xl" >
+		<section id='home' className="flex justify-center items-center pt-36 max-w-7xl" >
 
 			<Spotlight
 				className='

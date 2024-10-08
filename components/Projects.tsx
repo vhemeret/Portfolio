@@ -142,7 +142,7 @@ function Projects() {
 
 	return (
 		<>
-			<section className='relative flex flex-col mt-30 justify-center items-center mt-40'>
+			<section id='projects' className='relative flex flex-col mt-30 justify-center items-center mt-40'>
 
 				<div className="absolute inset-0 bg-black-100 bg-grid-white/[0.04] flex items-center justify-center">
 					<div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,1)_90%,black)]"></div>

@@ -42,19 +42,19 @@ export default function Header() {
 
 				<div className='hidden md:flex justify-between items-center'>
 					<ul className='flex gap-8 text-white bg-black-200 rounded-3xl px-2 py-1'>
-						<li className='p-3 text-xs md:text-[15px] cursor-pointer hover:text-purple transition-all font-thin uppercase'><a href='#'>accueil</a></li>
-						<li className='p-3 text-xs md:text-[15px] cursor-pointer hover:text-purple transition-all font-thin uppercase'><a href='#'>à propos</a></li>
-						<li className='p-3 text-xs md:text-[15px] cursor-pointer hover:text-purple transition-all font-thin uppercase'><a href='#'>projet</a></li>
-						<li className='p-3 text-xs md:text-[15px] cursor-pointer hover:text-purple transition-all font-thin uppercase'><a href='#'>contact</a></li>
+						<li className='p-3 text-xs md:text-[15px] cursor-pointer hover:text-purple transition-all font-thin uppercase'><a href='#home'>accueil</a></li>
+						<li className='p-3 text-xs md:text-[15px] cursor-pointer hover:text-purple transition-all font-thin uppercase'><a href='#about'>à propos</a></li>
+						<li className='p-3 text-xs md:text-[15px] cursor-pointer hover:text-purple transition-all font-thin uppercase'><a href='#projects'>projet</a></li>
+						<li className='p-3 text-xs md:text-[15px] cursor-pointer hover:text-purple transition-all font-thin uppercase'><a href='#contact'>contact</a></li>
 					</ul>
 				</div>
 
 				<div className='flex md:hidden justify-between items-center'>
 					<ul className='flex gap-8 text-white bg-black-200 rounded-3xl cursor-pointer p-2 w-56 justify-center'>
-						<HomeIcon className='w-5 cursor-pointer hover:text-violet-900 transition-all duration-100' href='#'/>
-						<InformationCircleIcon className='w-5 cursor-pointer hover:text-violet-900 transition-all duration-100' />
-						<FolderOpenIcon className='w-5 cursor-pointer hover:text-violet-900 transition-all duration-100' />
-						<ChatBubbleOvalLeftIcon className='w-5 cursor-pointer hover:text-violet-900 transition-all duration-100' />
+						<a href='#home'><HomeIcon className='w-5 cursor-pointer hover:text-violet-900 transition-all duration-100' /></a>
+						<a href='#about'><InformationCircleIcon className='w-5 cursor-pointer hover:text-violet-900 transition-all duration-100' /></a>
+						<a href='#projects'><FolderOpenIcon className='w-5 cursor-pointer hover:text-violet-900 transition-all duration-100' /></a>
+						<a href='#contact'><ChatBubbleOvalLeftIcon className='w-5 cursor-pointer hover:text-violet-900 transition-all duration-100' /></a>
 					</ul>
 				</div>
 

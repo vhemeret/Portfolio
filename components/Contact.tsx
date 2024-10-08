@@ -3,7 +3,7 @@ import ShimmerButton from './ui/ShimmerButton'
 
 function Contact() {
     return (
-        <section className='z-10 flex pt-40 flex-col justify-center items-center md:w-4/5 lg:w-3/5 xl:w-2/5'>
+        <section id='contact' className='z-10 flex pt-40 flex-col justify-center items-center md:w-4/5 lg:w-3/5 xl:w-2/5'>
             <div className='text-white md:text-3xl lg:text-4xl sm:text-xl font-bold'>
                 <h1>Contactez-moi <span className='text-purple'>!</span></h1>
             </div>
