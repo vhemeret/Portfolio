@@ -1,11 +1,10 @@
 import Logo from '/pages/img/logo-portfolio.webp'
 import Image from 'next/image';
-import { ChatBubbleOvalLeftIcon, ChevronUpIcon, FolderOpenIcon, HomeIcon, InformationCircleIcon, ListBulletIcon } from "@heroicons/react/20/solid"
+import { ChatBubbleOvalLeftIcon, ChevronUpIcon, FolderOpenIcon, HomeIcon, InformationCircleIcon } from "@heroicons/react/20/solid"
 import { useEffect, useState } from 'react';
 
 
 export default function Header() {
-	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	const [showScrollToTop, setShowScrollToTop] = useState(false)
 
 	useEffect(() => {
@@ -26,10 +25,6 @@ export default function Header() {
 
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
-	};
-
-	const handleMenu = () => {
-		setIsMenuOpen(!isMenuOpen);
 	};
 
 	return (

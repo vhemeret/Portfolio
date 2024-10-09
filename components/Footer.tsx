@@ -1,4 +1,3 @@
-import { H1Icon } from '@heroicons/react/20/solid'
 import React from 'react'
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";

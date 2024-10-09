@@ -1,9 +1,8 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
-import { Url } from "next/dist/shared/lib/router/router";
 import { projectInterface } from "./Projects";
 
 interface Props {
