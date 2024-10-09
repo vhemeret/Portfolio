@@ -4,11 +4,12 @@ import Hero from "../components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 
 export default function Home() {
   return (
-    <main className="bg-black-100 min-h-screen pb-20"> 
+    <main className="bg-black-100 min-h-screen"> 
       <div className="relative flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5 bg-black-100">
 
         <Head>
@@ -22,6 +23,7 @@ export default function Home() {
         <About />
         <Projects />
         <Contact />
+		<Footer />
 
       </div>
     </main>

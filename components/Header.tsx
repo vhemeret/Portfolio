@@ -38,7 +38,7 @@ export default function Header() {
 				<Image src={Logo} alt='hemeret logo' className='w-24' />
 			</div>
 
-			<header className='flex rounded-3xl z-10 justify-center p-5'>
+			<header className='flex rounded-3xl z-20 justify-center p-5'>
 
 				<div className='hidden md:flex justify-between items-center'>
 					<ul className='flex gap-8 text-white bg-black-200 rounded-3xl px-2 py-1'>
@@ -59,7 +59,7 @@ export default function Header() {
 				</div>
 
 				{showScrollToTop && (
-					<button className='fixed z-50 bottom-5 right-5 text-white' onClick={scrollToTop}>
+					<button className='fixed z-50 bottom-16 right-5 text-white' onClick={scrollToTop}>
 						<ChevronUpIcon className='w-8 rounded-full bg-purple text-white hover:bg-violet-800 transition-all duration-300' />
 					</button>
 				)}

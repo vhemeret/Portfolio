@@ -36,7 +36,7 @@ export default function Contact() {
 	};
 
 	return (
-		<section id='contact' className='z-10 flex pt-40 flex-col justify-center items-center md:w-4/5 lg:w-3/5 xl:w-2/5'>
+		<section id='contact' className=' z-10 flex pt-40 flex-col justify-center items-center md:w-4/5 lg:w-3/5 xl:w-2/5'>
 			<div className='text-white md:text-3xl lg:text-4xl sm:text-xl font-bold'>
 				<h1>Contactez-moi <span className='text-purple'>!</span></h1>
 			</div>
@@ -79,15 +79,15 @@ export default function Contact() {
 						{...register('message', { required: "Le message est requis *" })}
 					/>
 				</div>
-				{ response && (
+				{response && (
 					<p className='text-gray-700 text-sm'>{response}</p>
 				)}
 				<div className='flex justify-center'>
-					<button type="submit" className=" mw-32 mt-5 md:mt-10 inline-flex h-12 animate-shimmer items-center justify-center rounded-2xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+					<button type="submit" className="mb-40 mw-32 mt-5 md:mt-10 inline-flex h-12 animate-shimmer items-center justify-center rounded-2xl border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
 						Envoyer
 					</button>
 				</div>
 			</form>
 		</section>
 	)
-}
+} 

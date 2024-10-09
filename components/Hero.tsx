@@ -54,7 +54,9 @@ export default function Hero() {
 					<motion.h2 className='text-xs uppercase tracking-widest' variants={itemVariants}>développeur junior passionné situé en région parisienne</motion.h2>
 				</motion.div>
 				<div className='flex justify-center'>
-					<ShimmerButton title='Voir mes projets' />
+					<a href='#projects'>
+						<ShimmerButton title='Voir mes projets' />
+					</a>
 				</div>
 			</div>
 		</section >
