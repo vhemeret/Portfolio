@@ -34,10 +34,10 @@ export default function Hero() {
 
 			<Spotlight
 				className='
-				sm:-end-[100px] sm:-top-[700px]
-				md:-end-[300px] md:-top-[700px]
-				lg:-end-[190px] lg:-top-[500px]
-				-end-[200px] -top-[600px]
+				sm:-end-[100px] sm:-top-[1000px]
+				md:-end-[300px] md:-top-[1000px]
+				lg:-end-[80px] lg:-top-[900px]
+				-end-[100px] -top-[900px]
 				z-50
 				'
 				fill='purple'
