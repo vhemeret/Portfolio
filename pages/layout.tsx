@@ -1,5 +1,6 @@
 import { ReactNode } from "react"
 import { ThemeProvider } from "../components/theme-providers"
+import { Analytics } from '@vercel/analytics/react';
 
 
 interface RootLayoutProps {
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             {children}
           </ThemeProvider>
+		  <Analytics />
         </body>
       </html>
     </>

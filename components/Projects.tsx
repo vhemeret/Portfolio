@@ -150,7 +150,7 @@ function Projects() {
 
 				<motion.div ref={titleRef} className='z-50 mb-20' variants={containerVariants} initial="hidden" animate={isInView ? "visible" : "hidden"}>
 					<motion.h1 variants={itemVariants} className='text-white md:text-3xl lg:text-4xl sm:text-xl font-bold'>
-						Une selection de mes <span className='text-purple'>projets..</span>
+						Une sélection de mes <span className='text-purple'>projets..</span>
 					</motion.h1>
 				</motion.div>
 
